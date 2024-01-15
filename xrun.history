@@ -1,0 +1,1 @@
+s1(15Jan2024:06:40:47):  xrun -Q -unbuffered -timescale 1ns/1ns -sysv -access +rw -uvmnocdnsextra -uvmhome /xcelium20.09/tools//methodology/UVM/CDNS-1.1d/sv /xcelium20.09/tools//methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh design.sv testbench.sv 

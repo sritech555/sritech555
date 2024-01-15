@@ -1,0 +1,90 @@
+xrun: 20.09-s003: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun	20.09-s003: Started on Jan 15, 2024 at 06:40:47 EST
+xrun
+	-Q
+	-unbuffered
+	-timescale 1ns/1ns
+	-sysv
+	-access +rw
+	-uvmnocdnsextra
+	-uvmhome /xcelium20.09/tools//methodology/UVM/CDNS-1.1d/sv
+	/xcelium20.09/tools//methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh
+	design.sv
+	testbench.sv
+     uvm_config_db #(virtual bus_if)::get (null, "uvm_test_top.*", "vif", vif);
+                                        |
+xmvlog: *W,FUNTSK (my_monitor.sv,13|40): function called as a task without void'().
+    uvm_config_db#(mem_ctrl_reg_block)::get(null, "uvm_test_top", "m_ral_model", m_ral_model);
+                                          |
+xmvlog: *W,FUNTSK (mem_controller_write_sequence.sv,16|42): function called as a task without void'().
+      uvm_config_db#(mem_ctrl_reg_block)::get(null, "uvm_test_top", "m_ral_model", m_ral_model);
+                                            |
+xmvlog: *W,FUNTSK (reg_rw_test.sv,26|44): function called as a task without void'().
+      m_ral_model.csr.predict(32'h0);
+                            |
+xmvlog: *W,FUNTSK (reg_rw_test.sv,39|28): function called as a task without void'().
+     	uvm_config_db#(mem_ctrl_reg_block)::get(null, "uvm_test_top", "m_ral_model", m_ral_model);
+     	                                      |
+xmvlog: *W,FUNTSK (mc_base_test.sv,19|44): function called as a task without void'().
+    mc_top mc_dut (
+                |
+xmelab: *W,CUVWSI (./testbench.sv,64|16): 2 input ports were not connected:
+xmelab: (./mc_top.v,17): clk_i
+xmelab: (./mc_top.v,17): rst_i
+
+	Top level design units:
+		uvm_pkg
+		$unit_0x01b105d8
+		tbench_top
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+Loading snapshot worklib.tbench_top:sv .................... Done
+SVSEED default: 1
+xmsim: *W,RNDXCELON: A newer version of the SystemVerilog constraint solver is being used which has better support for array-solving, new solve-order mechanism, and seed stability enhancements..
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /xcelium20.09/tools/xcelium/files/xmsimrc
+xcelium> source /xcelium20.09/tools//methodology/UVM/CDNS-1.1d/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+----------------------------------------------------------------
+CDNS-UVM-1.1d (20.09-s003)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+xmsim: *W,PRPASZ: Packed array at "worklib.uvm_pkg::uvm_string_to_bits.uvm_string_to_bits" of 115200 bits exceeds limit of 4096 - not probed
+ Use 'probe -create -packed 115200 worklib.uvm_pkg::uvm_string_to_bits.uvm_string_to_bits' or 'setenv SHM_PACKED_LIMIT 115200' to adjust limit.
+xmsim: *W,PRPASZ: Packed array at "worklib.uvm_pkg::uvm_bits_to_string.str" of 115200 bits exceeds limit of 4096 - not probed
+ Use 'probe -create -packed 115200 worklib.uvm_pkg::uvm_bits_to_string.str' or 'setenv SHM_PACKED_LIMIT 115200' to adjust limit.
+UVM_INFO @ 0: reporter [RNTST] Running test mc_base_test...
+MC_TIMING SM: Entered non existing state ... (                   0)
+I am in mem_controller_env
+I am in my_driver
+I am in my_env 
+I am in my_driver
+I am in reg2apb_addapter at time:0
+I am in mem_controller_agent
+I am in mem_controller_driver 
+I am in MC_BASE_TEST
+MC_TIMING SM: Entered non existing state ... (                   0)
+MC_TIMING SM: Entered non existing state ... (                   0)
+MC_TIMING SM: Entered non existing state ... (                   0)
+MC_TIMING SM: Entered non existing state ... (                   0)
+UVM_INFO mem_controller_write_sequence.sv(44) @ 17500: uvm_test_top.mc_env.mc_agent.mc_seqr@@mc_wr_seq [TXN_DETAIL] Type: WRITE, Write: 0x1 Addr: 0xx, Data: 0xx, CSR: 0xx, POC: 0xx, BA_MASK: 0xx, Req Bus: x, Enter PD: x, Exit PD: x
+UVM_INFO mem_controller_write_sequence.sv(55) @ 17500: uvm_test_top.mc_env.mc_agent.mc_seqr@@mc_wr_seq [TXN_DETAIL] Type: WRITE, Write: 0x0 Addr: 0x50000000, Data: 0xabcdefaa, CSR: 0xx, POC: 0xx, BA_MASK: 0xx, Req Bus: x, Enter PD: x, Exit PD: x
+Simulation complete via $finish(1) at time 1 US + 0
+./testbench.sv:119     $finish;
+xcelium> exit
+TOOL:	xrun	20.09-s003: Exiting on Jan 15, 2024 at 06:40:53 EST  (total: 00:00:06)
